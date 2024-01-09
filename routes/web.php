@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/',HomeController::class); //Main Page
+
 Route::get('/home', HomeController::class)->name('home');
 
 Route::resource('teams', TeamController::class);
