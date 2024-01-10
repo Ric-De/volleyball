@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->text('players_names');
             $table->string('city');
             $table->string('district');
             $table->timestamps();//created_at updated_at
