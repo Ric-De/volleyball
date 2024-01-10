@@ -63,7 +63,7 @@ class TeamSeeder extends Seeder
         $team5->name = 'Fuertes';
         $team5->players_names = 'Oriol e Sancho';
         $team5->city = 'Vasquez';
-        $team5->district = 'Barrio de Cornudos';
+        $team5->district = 'Barrio del Monte';
 
         $team5->save();
     }
