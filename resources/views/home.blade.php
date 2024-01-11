@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+@extends('layouts.template')
+
+@section('title', 'Home')
+
+@section('content')
+<h1>This is the Main Page of the Website</h1>
+@endsection
+
+
+
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,4 +28,4 @@
 
     <!-- script -->
 </body>
-</html>
+</html> --}}
