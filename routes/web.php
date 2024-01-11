@@ -15,13 +15,12 @@ use App\Http\Controllers\GameController;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
-Route::get('/',HomeController::class); //Main Page
+Route::get('/',HomeController::class)->name('home'); //Main Page
 
-Route::get('/home', HomeController::class)->name('home');
-
+/* Route::get('/home', HomeController::class)->name('home');*/
 Route::resource('teams', TeamController::class);
 Route::resource('games', GameController::class);
