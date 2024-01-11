@@ -20,6 +20,10 @@ return new class extends Migration
             $table->integer('yellow_score');//sets: min 0 max 2
             $table->integer('blue_score');//sets: min 0 max 2
             $table->timestamps();
+
+            // Foreign key restrictions with onDelete('RESTRICT')
+            $table->foreign('yellow_team_id')->references('id')->on('teams')->onDelete('RESTRICT');
+            $table->foreign('blue_team_id')->references('id')->on('teams')->onDelete('RESTRICT');
         });
     }
 
