@@ -22,7 +22,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view("games.create");
     }
 
     /**
@@ -30,7 +30,8 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $game = Game::create($request->all());
+        return redirect()->route('games.show', $game);
     }
 
     /**
