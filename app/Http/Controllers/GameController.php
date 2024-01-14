@@ -30,6 +30,16 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'date' => 'required',
+            'time' => 'required',
+            'yellow_team' => 'required',
+            'blue_team' => 'required',
+            'yellow_score' => 'required',
+            'blue_score' => 'required'
+        ]);
+
         $game = Game::create($request->all());
         return redirect()->route('games.show', $game);
     }
