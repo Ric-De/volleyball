@@ -60,15 +60,28 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view("teams.edit", compact('team'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Team $team)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'players_names' => 'required'
+        ]);
+
+        $team->name = $request->name;
+        $team->city = $request->city;
+        $team->district = $request->district;
+        $team->players_names = $request->players_names;
+        $team->save();
+
+        return redirect()->route('teams.show', $team);
     }
 
     /**
