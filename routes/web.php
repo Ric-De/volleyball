@@ -21,6 +21,6 @@ use App\Http\Controllers\GameController;
 
 Route::get('/',HomeController::class)->name('home'); //Main Page
 
-/* Route::get('/home', HomeController::class)->name('home');*/
+Route::get('/', HomeController::class)->name('/');
 Route::resource('teams', TeamController::class);
 Route::resource('games', GameController::class);
