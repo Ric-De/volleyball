@@ -52,7 +52,7 @@ class TeamController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view("teams.show", compact('team'));
     }
 
     /**
