@@ -3,114 +3,107 @@
 @section('title', 'Create Game')
 
 @section('content')
-    <h1>This is the Create Games Page</h1>
+    <div class="flex items-center justify-center h-screen border-3 border-beige" style="background-image: url('{{ asset('images/editcreatebackground.jpg') }}'); border-width: 30px; border-style: solid; background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="text-center text-white">
+            <h1 class="text-5xl font-extrabold mb-8">Create Games</h1>
 
-    
-    <form action="{{route('games.store')}}" method="POST">
-        @csrf
-        
-    @php
-        $teams = App\Models\Team::all();
-    @endphp
- 
-        <label>
-            Date:
+            <form action="{{ route('games.store') }}" method="POST" class="text-left">
+                @csrf
+
+                @php
+                    $teams = App\Models\Team::all();
+                @endphp
+
+                <label class="mb-4">
+                    Date:
+                    <br>
+                    <input type="date" name="date" value="{{ old('date') }}" class="py-2 px-4 rounded bg-gray-200 text-black">
+                </label>
+
+                @error('date')
+                    <span class="text-red-500">*{{ $message }}</span>
+                @enderror
+
+                <br>
+                <label class="mb-4">
+                    Time:
+                    <br>
+                    <input type="time" name="time" value="{{ old('time') }}" class="py-2 px-4 rounded bg-gray-200 text-black">
+                </label>
+
+                @error('time')
+                    <span class="text-red-500">*{{ $message }}</span>
+                @enderror
+
+                <br>
+                <label class="mb-4">
+                    Yellow Team:
+                    <br>
+                    <select name="yellow_team_id" class="py-2 px-4 rounded bg-gray-200 text-black">
+                        <option value="" {{ old('yellow_team_id') == "" ? 'selected' : '' }}>Select Yellow Team</option>
+                        @foreach ($teams as $team)
+                            <option value='{{ $team->id }}' {{ old('yellow_team_id') == $team->id ? 'selected' : '' }}>
+                                {{ $team->name }}</option>
+                        @endforeach
+                    </select>
+                </label>
+
+                @error('yellow_team_id')
+                    <span class="text-red-500">*{{ $message }}</span>
+                @enderror
+
+                <br>
+                <label class="mb-4">
+                    Blue Team:
+                    <br>
+                    <select name="blue_team_id" class="py-2 px-4 rounded bg-gray-200 text-black">
+                        <option value="" {{ old('blue_team_id') == "" ? 'selected' : '' }}>Select Blue Team</option>
+                        @foreach ($teams as $team)
+                            <option value='{{ $team->id }}' {{ old('blue_team_id') == $team->id ? 'selected' : '' }}>
+                                {{ $team->name }}</option>
+                        @endforeach
+                    </select>
+                </label>
+
+                @error('blue_team_id')
+                    <span class="text-red-500">*{{ $message }}</span>
+                @enderror
+                <br>
+
+                <label class="mb-4">
+                    Yellow Score:
+                    <br>
+                    <input type="number" name="yellow_score" value="{{ old('yellow_score') }}" min='0' max='2'
+                        placeholder='score' class="py-2 px-4 rounded bg-gray-200 text-black">
+                </label>
+
+                @error('yellow_score')
+                    <span class="text-red-500">*{{ $message }}</span>
+                @enderror
+                <br>
+
+                <label class="mb-4">
+                    Blue Score:
+                    <br>
+                    <input type="number" name="blue_score" value="{{ old('blue_score') }}" min='0' max='2'
+                        placeholder='score' class="py-2 px-4 rounded bg-gray-200 text-black">
+                </label>
+
+                @error('blue_score')
+                    <span class="text-red-500">*{{ $message }}</span>
+                @enderror
+                <br>
+
+                <br>
+                <button type="submit" class="hover:bg-green-600 bg-green-500 text-white font-bold py-2 px-4 rounded">Add Team</button>
+
+            </form>
+
             <br>
-            <input type="date" name="date" value="{{old('date')}}">
-        </label>
 
-        @error('date')
-        <br>
-        <span>*{{$message}}</span>
-        <br>    
-        @enderror
-
-        <br>
-        <label>
-            Time:
-            <br>
-            <input type="time" name="time" value="{{old('time')}}">
-        </label>
-
-        @error('time')
-        <br>
-        <span>*{{$message}}</span>
-        <br>    
-        @enderror
-
-
-        <br>
-        <label>
-            Yellow Team:
-            <br>
-            <select name="yellow_team_id">
-                <option value="" {{old('yellow_team_id') == "" ? 'selected' : ''}}>Select Yellow Team</option>
-                @foreach($teams as $team)
-                <option value='{{$team->id}}' {{old('yellow_team_id') == $team->id ? 'selected' : ''}}>
-                {{$team->name}}</option>
-                @endforeach
-            </select>
-            </label>
-
-        @error('yellow_team_id')
-        <br>
-        <span>*{{$message}}</span>
-        <br>    
-        @enderror
-
-        <br>
-        <label>
-            Blue Team:
-            <br>
-            <select name="blue_team_id">
-                <option value="" {{old('blue') == "" ? 'selected' : ''}}>Select Blue Team</option>
-                @foreach($teams as $team)
-                <option value='{{$team->id}}' {{old('blue_team_id') == $team->id ? 'selected' : ''}}>
-                {{$team->name}}</option>
-                @endforeach
-            </select>
-            </label>
-
-        @error('blue_team_id')
-        <br>
-        <span>*{{$message}}</span>
-        <br>    
-        @enderror
-        <br>
-
-        <label>
-            Yellow Score:
-            <br>
-            <input type="number" name="yellow_score" value="{{old('yellow_score')}}" min='0' max='2' placeholder='score'> </label>
-
-        @error('yellow_score')
-        <br>
-        <span>*{{$message}}</span>
-        <br>    
-        @enderror
-        <br>
-
-        <label>
-            Blue Score:
-            <br>
-            <input type="number" name="blue_score" value="{{old('blue_score')}}" min='0' max='2' placeholder='score'> </label>
-
-        @error('blue_score')
-        <br>
-        <span>*{{$message}}</span>
-        <br>    
-        @enderror
-        <br>
-
-        <br>
-        <button type="submit">Add Team</button>
-
-    </form>
-    
-    <br>
-
-    <form action="{{route('teams.index')}}" method="GET">
-        <button type="submit">Back</button>
-    </form>
-
+            <form action="{{ route('teams.index') }}" method="GET">
+                <button type="submit" class="hover:bg-blue-600 bg-blue-500 text-white font-bold py-2 px-4 rounded">Back</button>
+            </form>
+        </div>
+    </div>
 @endsection
