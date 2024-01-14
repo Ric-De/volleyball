@@ -12,7 +12,7 @@
                 <label class="mb-4">
                     Name:
                     <br>
-                    <input type="text" name="name" value="{{ old('name') }}" class="py-2 px-4 rounded bg-gray-200 text-black"> <!-- Changed text color to black -->
+                    <input type="text" name="name" value="{{ old('name') }}" class="py-2 px-4 rounded bg-gray-200 text-black">
                 </label>
 
                 @error('name')

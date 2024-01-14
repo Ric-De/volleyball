@@ -4,10 +4,10 @@
 
 @section('content')
     <div class="flex items-center justify-center h-screen border-3 border-beige" style="background-image: url('{{ asset('images/indexbackground.jpg') }}'); border-width: 30px; border-style: solid; background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="text-center text-brown"> <!-- Added text-brown class for the brown font color -->
+        <div class="text-center text-brown">
             <h1 class="text-4xl font-extrabold mb-8">Current Team List</h1>
 
-            <table class="border-collapse border-2 border-white text-brown"> <!-- Added text-brown class for the brown font color -->
+            <table class="border-collapse border-2 border-white text-brown">
                 <thead>
                     <tr>
                         <th class="border border-white px-4 py-2">View Team</th>
