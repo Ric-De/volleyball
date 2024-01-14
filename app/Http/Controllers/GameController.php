@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Game;
 
 class GameController extends Controller
 {
@@ -11,7 +12,9 @@ class GameController extends Controller
      */
     public function index()
     {
-        //
+        //$games = Game::all();
+        $games = Game::orderBy('date', 'asc')->get(); //verify to order by date and time
+        return view("games.index", compact('games'));
     }
 
     /**
