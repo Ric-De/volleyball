@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>@yield('title')</title>
+    
     <!-- favicon -->
     <!-- estilos -->
 </head>
-<body>
+<body class="bg-yellow-300">
     <!-- header -->
     <!-- nav -->
     
-    <h1>This is the Main Page of the Website</h1>
-
+    @yield('content')
+    
     <!-- footer -->
 
     <!-- script -->
