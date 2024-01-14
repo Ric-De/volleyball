@@ -22,7 +22,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view("teams.create");
     }
 
     /**
@@ -30,7 +30,21 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'players_names' => 'required'
+        ]);
+
+        $team = new Team();
+        $team->name = $request->name;
+        $team->city = $request->city;
+        $team->district = $request->district;
+        $team->players_names = $request->players_names;
+        $team->save();
+
+        return redirect()->route('teams.show', $team);
     }
 
     /**
