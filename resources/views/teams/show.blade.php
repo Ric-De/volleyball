@@ -27,6 +27,7 @@
             <br>
             <form action="{{ route('teams.destroy', $team) }}" method="POST" class="inline-block ml-1cm"> 
                 @method('delete')
+                @csrf
                 <button type="submit" class="hover:bg-red-600 bg-red-500 text-white font-bold py-2 px-4 rounded">Delete Team</button>
             </form>
         </div>

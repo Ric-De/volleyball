@@ -5,7 +5,7 @@
 @section('content')
     <div class="flex items-center justify-center h-screen border-3 border-beige" style="background-image: url('{{ asset('images/editcreatebackground.jpg') }}'); border-width: 30px; border-style: solid; background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="text-center text-white">
-            <h1 class="text-5xl font-extrabold mb-8">Create Games</h1>
+            <h1 class="text-5xl font-extrabold mb-8">Create Games Page</h1>
 
             <form action="{{ route('games.store') }}" method="POST" class="text-left">
                 @csrf
@@ -95,13 +95,13 @@
                 <br>
 
                 <br>
-                <button type="submit" class="hover:bg-green-600 bg-green-500 text-white font-bold py-2 px-4 rounded">Add Team</button>
+                <button type="submit" class="hover:bg-green-600 bg-green-500 text-white font-bold py-2 px-4 rounded">Add Game</button>
 
             </form>
 
             <br>
 
-            <form action="{{ route('teams.index') }}" method="GET">
+            <form action="{{ route('games.index') }}" method="GET">
                 <button type="submit" class="hover:bg-blue-600 bg-blue-500 text-white font-bold py-2 px-4 rounded">Back</button>
             </form>
         </div>
