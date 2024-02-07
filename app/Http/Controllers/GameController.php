@@ -34,8 +34,8 @@ class GameController extends Controller
         $request->validate([
             'date' => 'required',
             'time' => 'required',
-            'yellow_team' => 'required',
-            'blue_team' => 'required',
+            'yellow_team_id' => 'required',
+            'blue_team_id' => 'required',
             'yellow_score' => 'required',
             'blue_score' => 'required'
         ]);
