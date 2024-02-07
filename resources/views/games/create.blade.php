@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="flex items-center justify-center h-screen border-3 border-beige" style="background-image: url('{{ asset('images/editcreatebackground.jpg') }}'); border-width: 30px; border-style: solid; background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="text-center text-white">
+        <div class="text-center text-black">
             <h1 class="text-5xl font-extrabold mb-8">Create Games Page</h1>
 
             <form action="{{ route('games.store') }}" method="POST" class="text-left">
